@@ -9,12 +9,20 @@ console.log("Начальный вариант массива А : " + A);
 
 // FIRST TASK
 
-var B = new Array();
+var B = [];
+var flag = true;
 
-for (i = 0; i < A.length; i++) {
-    if (A[i] > 0 && A[i] % 2 != 0 && A[i] % 3 != 0) {
-        B[B.length] = A[i];
+for (var i = 0; i < A.length; i++) {
+    for (var j = 2; j < A[i]; j++) {
+        if (A[i] % j == 0) {
+            flag = false;
+            break;
+        }
+        // else continue;
     }
+    if (flag == true) {
+        B.push(A[i]);
+    } else flag = true;
 }
 
 console.log("Массив правильных чисел из массива А : " + B);
